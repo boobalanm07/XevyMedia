@@ -1,0 +1,40 @@
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px; /* Adjust position */
+    right: 20px; /* Adjust position */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 60px; /* Icon size */
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #25d366; /* WhatsApp green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .floating-whatsapp img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .floating-whatsapp {
+        top: 50%;
+        width: 50px;
+        background-color: #fff !important;
+        right: 0%;
+        border-radius: 10px 0px 0px 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 5px 10px;
+        left: unset;
+        right: 0% !important;
+        height: 50px;
+    }
+    .floating-whatsapp img {
+        width: 100%;
+        height: auto;
+    }
+
+}

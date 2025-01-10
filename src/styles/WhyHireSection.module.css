@@ -1,0 +1,12 @@
+.why-hire-section .circle.active {
+    background-color: #007bff; /* Add your active circle color */
+  }
+  
+  .why-hire-content {
+    display: none; /* Hide all contents by default */
+  }
+  
+  .why-hire-content.active {
+    display: block; /* Show only active content */
+  }
+  
