@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link'; // Import Link from next/link
-import { getSEOData, getPosts } from '../../services/api';
+import { getSEOData, getPosts } from '../services/api';
 import { useState, useEffect } from 'react';
 
 const BlogPost = ({ seoData, post: initialPost }) => {

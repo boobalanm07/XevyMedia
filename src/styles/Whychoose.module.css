@@ -1,0 +1,12 @@
+.why-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.why-text {
+    text-align: left;
+    flex: 1; /* Allow the left text to take up available space */
+    position: sticky;
+    top: 65%;
+    margin-top: 100px;
+}

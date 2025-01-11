@@ -110,7 +110,7 @@ const BlogList = ({ posts: initialPosts, seoData: initialSEOData }) => {
       )}
     </p>
     {/* Link to post */}
-    <Link href={`/blog/${post.slug}`} className="btn btn-primary">
+    <Link href={`/${post.slug}`} className="btn btn-primary">
       Read More
     </Link>
   </div>
