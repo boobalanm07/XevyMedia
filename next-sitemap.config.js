@@ -15,14 +15,14 @@ export default {
 
     const pagePaths = pages.map((page) => ({
       loc: `https://www.xevy.io/${page.slug}`,
-      lastmod: page.modified,
+      lastmod: new Date(page.modified).toISOString(), // Ensure ISO 8601 format
       changefreq: 'weekly',
       priority: 0.7,
     }));
 
     const postPaths = posts.map((post) => ({
       loc: `https://www.xevy.io/${post.slug}`, // Adjust if your blog URL structure is different
-      lastmod: post.modified,
+      lastmod: new Date(post.modified).toISOString(), // Ensure ISO 8601 format
       changefreq: 'weekly',
       priority: 0.7,
     }));
@@ -34,7 +34,7 @@ export default {
   transform: async (config, path) => {
     return {
       loc: path,
-      lastmod: new Date().toISOString(),
+      lastmod: new Date().toISOString(), // ISO 8601 format for current date
       changefreq: 'weekly',
       priority: 0.7,
     };
