@@ -1,32 +1,42 @@
-import fetch from 'node-fetch'; // Use ES Module import (ensure you're using .mjs for ES module syntax)
+import fetch from 'node-fetch';
 
 export default {
   siteUrl: 'https://www.xevy.io', // Replace with your main website URL
   generateRobotsTxt: true, // Optional: to generate a robots.txt file
   sitemapSize: 5000, // Optional: split the sitemap if it's too large
   
-  // Additional paths to include in the sitemap
+  // Additional paths to include in the sitemap (Pages + Blog Posts)
   async additionalPaths() {
-    // Fetch pages from your WordPress REST API
-    const response = await fetch('https://admin.xevy.io/wp-json/wp/v2/pages'); // Replace with your WordPress REST API endpoint
-    const pages = await response.json();
+    const pagesResponse = await fetch('https://admin.xevy.io/wp-json/wp/v2/pages');
+    const pages = await pagesResponse.json();
 
-    // Map through pages to create URLs for sitemap
-    return pages.map((page) => ({
-      loc: `https://www.xevy.io/${page.slug}`, // Adjust if necessary based on your URL structure
-      lastmod: page.modified, // Use the last modified date from WordPress
-      changefreq: 'weekly', // Set frequency of updates
-      priority: 0.7, // Adjust priority as needed
+    const postsResponse = await fetch('https://admin.xevy.io/wp-json/wp/v2/posts');
+    const posts = await postsResponse.json();
+
+    const pagePaths = pages.map((page) => ({
+      loc: `https://www.xevy.io/${page.slug}`,
+      lastmod: page.modified,
+      changefreq: 'weekly',
+      priority: 0.7,
     }));
+
+    const postPaths = posts.map((post) => ({
+      loc: `https://www.xevy.io/${post.slug}`, // Adjust if your blog URL structure is different
+      lastmod: post.modified,
+      changefreq: 'weekly',
+      priority: 0.7,
+    }));
+
+    return [...pagePaths, ...postPaths]; // Combine both pages and posts
   },
 
   // Optional: Modify the transformation logic for other routes
   transform: async (config, path) => {
     return {
-      loc: path, // The URL of the page
-      lastmod: new Date().toISOString(), // Optionally, set the last modification time
-      changefreq: 'weekly', // Set frequency of updates
-      priority: 0.7, // Adjust priority as needed
+      loc: path,
+      lastmod: new Date().toISOString(),
+      changefreq: 'weekly',
+      priority: 0.7,
     };
   },
 };
