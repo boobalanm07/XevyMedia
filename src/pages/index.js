@@ -16,26 +16,17 @@ const HomePage = ({ seoData }) => {
   const router = useRouter();
 
   useEffect(() => {
-    // Only add the class if we are on the HomePage
-    if (router.pathname === '/') {
-      document.body.classList.add('bg');
-    }
-
-    // Simulate preloader timeout
+    // Simulate preloader timeout based on route change
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 6500); // Match the duration of your preloader animation
 
-    // Cleanup
-    return () => {
-      if (router.pathname === '/') {
-        document.body.classList.remove('bg');
-      }
-      clearTimeout(timer);
-    };
-  }, [router.pathname]);
+    // Clear the timeout on component unmount
+    return () => clearTimeout(timer);
 
-  // Render the SEO data in the head even when loading
+  }, [router.pathname]); // This will trigger when the route changes (on load)
+
+  // Render SEO data in the head, even when loading
   return (
     <>
       <Head>
@@ -44,7 +35,11 @@ const HomePage = ({ seoData }) => {
         <meta name="keywords" content={seoData.keywords} />
         <meta property="og:image" content={seoData.ogImage} />
       </Head>
-      {isLoading ? <Animation /> : (
+      
+      {/* Show preloader animation while loading */}
+      {isLoading ? (
+        <Animation />
+      ) : (
         <>
           <Banner />
           <SocialBanner />
