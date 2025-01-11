@@ -11,7 +11,6 @@ import RecentWork from '@/components/RecentWork';
 import WhyChooseUs from '@/components/WhyChooseus';
 import TestimonialSlider from '@/components/TestimonialSlider';
 
-
 const HomePage = ({ seoData }) => {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -36,8 +35,7 @@ const HomePage = ({ seoData }) => {
     };
   }, [router.pathname]);
 
-  if (isLoading) return <Animation />;
-
+  // Render the SEO data in the head even when loading
   return (
     <>
       <Head>
@@ -46,22 +44,26 @@ const HomePage = ({ seoData }) => {
         <meta name="keywords" content={seoData.keywords} />
         <meta property="og:image" content={seoData.ogImage} />
       </Head>
-      <Banner />
-      <SocialBanner />
-      <ServicesSection />
-      <HomeSections />
-      <RecentWork />
-      <WhyChooseUs />
-      <TestimonialSlider />
+      {isLoading ? <Animation /> : (
+        <>
+          <Banner />
+          <SocialBanner />
+          <ServicesSection />
+          <HomeSections />
+          <RecentWork />
+          <WhyChooseUs />
+          <TestimonialSlider />
+        </>
+      )}
     </>
   );
 };
 
 export async function getStaticProps() {
   let seoData = {
-    title: 'Website Design Services In UK | Website Design Services In Ireland',
-    description: 'Boost your online presence with our expert UK web design services. Get a stunning, high-performing website that attracts customers. Website Design Services In UK',
-    keywords: 'website design services in uk,website design services in ireland,web development company in uk',
+    title: 'Default Title',
+    description: 'Default description',
+    keywords: '',
     ogImage: 'default-image-url.jpg',
   };
 
