@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Header from './Header';
 import Footer from './Footer';
+import styles from '../styles/Layout.module.css';
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -11,7 +12,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className={isHomePage ? 'bg' : ''}>
+      <main className={isHomePage ? styles.bg : ''}>
         {children}
       </main>
       <Footer />

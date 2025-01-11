@@ -1,0 +1,9 @@
+.bg{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #0c1036;
+    background: url(img/others/background-top.png) no-repeat;
+    background-position: top right;
+    background-size: 75%;
+    overflow-x: hidden;
+}
