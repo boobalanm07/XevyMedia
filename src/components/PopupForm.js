@@ -1,56 +1,53 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from '../styles/Popup.module.css'
+import styles from '../styles/Popup.module.css';
 import Script from 'next/script';
 
 function PopupForm() {
   const [showPopup, setShowPopup] = useState(false); // State for showing the popup
   const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
-    user_phone: '',
-    user_requirement: '',
-    user_website: ''
+    name: '',
+    email: '',
+    phone: '',
+    requirement: '',
+    website: '',
   });
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State for showing success message
 
-  // Handle input change to update form data
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-        const response = await axios.post('/api/submitForm', formData);
-        console.log('Form submitted successfully:', response.data);
+      const response = await axios.post('/api/submitForm', formData);
+      setStatus('Form submitted successfully!');
 
-        // Show the success popup
-        setShowSuccessPopup(true);
+      // Reset the form fields after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        requirement: '',
+        website: '',
+      });
 
-        setShowPopup(false);  // Close the main popup after successful submission
-
-        // Clear form fields
-        setFormData({
-            user_name: '',
-            user_email: '',
-            user_phone: '',
-            user_requirement: '',
-            user_website: ''
-        });
-
-        // Hide the success popup after 5 seconds
-        setTimeout(() => {
-            setShowSuccessPopup(false);
-        }, 5000);
-    } catch (err) {
-        console.error('Form submission error:', err);
+      // Hide the success message after 3 seconds
+      setTimeout(() => {
+        setStatus('');
+      }, 3000); // 3000 milliseconds = 3 seconds
+    } catch (error) {
+      setStatus('There was an error submitting your form');
+      console.error('Form submission error:', error);
     }
-};
+  };
 
   // Toggle popup visibility
   const togglePopup = () => {
@@ -130,52 +127,63 @@ function PopupForm() {
             <div className="pop-form">
               <h3>Get Call back from</h3>
               <img src="/img/logo.png" alt="Logo" style={{ height: '60px' }} />
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="user_name">Name</label>
-                <input
-                  type="text"
-                  id="user_name"
-                  name="user_name"
-                  value={formData.user_name}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="user_email">Email</label>
-                <input
-                  type="email"
-                  id="user_email"
-                  name="user_email"
-                  value={formData.user_email}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="user_phone">Mobile Number</label>
-                <input
-                  type="tel"
-                  id="user_phone"
-                  name="user_phone"
-                  value={formData.user_phone}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="user_requirement">Requirement</label>
-                <textarea
-                  id="user_requirement"
-                  name="user_requirement"
-                  value={formData.user_requirement}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="user_website">Website</label>
-                <input
-                  type="url"
-                  id="user_website"
-                  name="user_website"
-                  value={formData.user_website}
-                  onChange={handleInputChange}
-                />
-                <button type="submit" className="btn">Submit</button>
+              <form onSubmit={handleSubmit} className="wpcf7">
+                <div className="form-group">
+                  <label for="user_name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="user_email">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="user_phone">Mobile Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    className="form-control"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="user_requirement">Requirement</label>
+                  <textarea
+                    name="requirement"
+                    className="form-control"
+                    value={formData.requirement}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="user_website">Website</label>
+                  <input
+                    type="url"
+                    name="website"
+                    className="form-control"
+                    value={formData.website}
+                    onChange={handleChange}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">Send Message</button>
               </form>
+              {status && <p>{status}</p>}
             </div>
             <div className="pop-img">
               <img 
@@ -184,14 +192,6 @@ function PopupForm() {
                 className="astronaut-popup img-fluid" 
               />
             </div>
-          </div>
-        </div>
-      )}
-
-      {showSuccessPopup && (
-        <div className="success-popup">
-          <div className="popup-content">
-            <p>Your request has been sent!</p>
           </div>
         </div>
       )}
