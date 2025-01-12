@@ -13,16 +13,27 @@ export default {
     const postsResponse = await fetch('https://admin.xevy.io/wp-json/wp/v2/posts');
     const posts = await postsResponse.json();
 
-    const pagePaths = pages.map((page) => ({
-      loc: `https://www.xevy.io/${page.slug}`,
-      lastmod: new Date(page.modified).toISOString(), // Ensure ISO 8601 format
-      changefreq: 'weekly',
-      priority: 0.7,
-    }));
+    const pagePaths = pages.map((page) => {
+      // Skip adding '/home' to the sitemap and replace it with '/'
+      if (page.slug === 'home') {
+        return {
+          loc: 'https://www.xevy.io', // Home page URL
+          lastmod: new Date(page.modified).toISOString(),
+          changefreq: 'weekly',
+          priority: 1.0, // Higher priority for the homepage
+        };
+      }
+      return {
+        loc: `https://www.xevy.io/${page.slug}`,
+        lastmod: new Date(page.modified).toISOString(),
+        changefreq: 'weekly',
+        priority: 0.7,
+      };
+    });
 
     const postPaths = posts.map((post) => ({
       loc: `https://www.xevy.io/${post.slug}`, // Adjust if your blog URL structure is different
-      lastmod: new Date(post.modified).toISOString(), // Ensure ISO 8601 format
+      lastmod: new Date(post.modified).toISOString(),
       changefreq: 'weekly',
       priority: 0.7,
     }));
@@ -34,7 +45,7 @@ export default {
   transform: async (config, path) => {
     return {
       loc: path,
-      lastmod: new Date().toISOString(), // ISO 8601 format for current date
+      lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: 0.7,
     };
