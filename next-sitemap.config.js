@@ -1,9 +1,9 @@
 import fetch from 'node-fetch';
 
 export default {
-  siteUrl: 'https://www.xevy.io', // Replace with your main website URL
-  generateRobotsTxt: true, // Optional: to generate a robots.txt file
-  sitemapSize: 5000, // Optional: split the sitemap if it's too large
+  siteUrl: 'https://www.xevy.io', // Main website URL
+  generateRobotsTxt: true, // Generate robots.txt file
+  sitemapSize: 5000, // Split sitemap if too large
 
   // Additional paths to include in the sitemap (Pages + Blog Posts)
   async additionalPaths() {
@@ -14,13 +14,13 @@ export default {
     const posts = await postsResponse.json();
 
     const pagePaths = pages.map((page) => {
-      // Skip adding '/home' to the sitemap and replace it with '/'
+      // Replace '/home' with '/'
       if (page.slug === 'home') {
         return {
           loc: 'https://www.xevy.io', // Home page URL
           lastmod: new Date(page.modified).toISOString(),
           changefreq: 'weekly',
-          priority: 1.0, // Higher priority for the homepage
+          priority: 1.0,
         };
       }
       return {
@@ -32,16 +32,16 @@ export default {
     });
 
     const postPaths = posts.map((post) => ({
-      loc: `https://www.xevy.io/${post.slug}`, // Adjust if your blog URL structure is different
+      loc: `https://www.xevy.io/${post.slug}`, // Blog post URL
       lastmod: new Date(post.modified).toISOString(),
       changefreq: 'weekly',
       priority: 0.7,
     }));
 
-    return [...pagePaths, ...postPaths]; // Combine both pages and posts
+    return [...pagePaths, ...postPaths]; // Combine pages and posts
   },
 
-  // Optional: Modify the transformation logic for other routes
+  // Transform logic for routes
   transform: async (config, path) => {
     return {
       loc: path,
@@ -52,9 +52,9 @@ export default {
   },
 
   robotsTxtOptions: {
-    // Explicitly define the robots.txt content
+    // Explicitly define robots.txt content
     additionalSitemaps: [
-      'https://www.xevy.io/sitemap.xml', // Add additional sitemap locations if necessary
+      'https://www.xevy.io/sitemap-0.xml', // Updated sitemap URL
     ],
     policies: [
       {
@@ -62,15 +62,14 @@ export default {
         allow: '/',
       },
     ],
-    // Don't include 'Host' directive, as it's unnecessary
-    // Explicitly set content to ensure 'Host' is not added.
+    // Custom robots.txt content
     customRobotsTxt: `
       # *
       User-agent: *
       Allow: /
 
       # Sitemaps
-      Sitemap: https://www.xevy.io/sitemap.xml
+      Sitemap: https://www.xevy.io/sitemap-0.xml
     `,
   },
 };
