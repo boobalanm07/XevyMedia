@@ -13,13 +13,13 @@ const nextConfig = {
       },
       {
         source: '/p/:path*',
-        destination: '/', // Redirect to the home page
-        permanent: true,
+        destination: '/404', // Redirect to 404 page
+        permanent: false, // Temporary redirect
       },
       {
         source: '/:path*.html', // Match any URL ending with .html
-        destination: '/', // Redirect to the home page
-        permanent: true,
+        destination: '/404', // Redirect to 404 page
+        permanent: false, // Temporary redirect
       },
       {
         source: '/',
@@ -29,8 +29,8 @@ const nextConfig = {
             key: 'x', // Match URLs with the query parameter `x`
           },
         ],
-        destination: '/', // Redirect to the home page
-        permanent: true,
+        destination: '/404', // Redirect to 404 page
+        permanent: false, // Temporary redirect
       },
     ];
   },
