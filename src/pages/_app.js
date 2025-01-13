@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="canonical" href="https://www.xevy.io" />
         <meta name="robots" content="index, follow" />
       </Head>
       <PopupForm />

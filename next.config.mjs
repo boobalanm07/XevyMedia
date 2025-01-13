@@ -9,9 +9,30 @@ const nextConfig = {
       {
         source: '/home',
         destination: '/',
-        permanent: true, // You can set this to false if it's a temporary redirect
+        permanent: true, // Permanent redirect
       },
-    ]
+      {
+        source: '/p/:path*',
+        destination: '/', // Redirect to the home page
+        permanent: true,
+      },
+      {
+        source: '/:path*.html', // Match any URL ending with .html
+        destination: '/', // Redirect to the home page
+        permanent: true,
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'x', // Match URLs with the query parameter `x`
+          },
+        ],
+        destination: '/', // Redirect to the home page
+        permanent: true,
+      },
+    ];
   },
 };
 
