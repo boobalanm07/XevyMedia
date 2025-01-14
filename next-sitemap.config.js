@@ -8,14 +8,14 @@ const additionalPaths = async () => {
   const posts = await postsResponse.json();
 
   const pagePaths = pages.map((page) => ({
-    loc: page.slug === 'home' ? 'https://www.xevy.io' : `https://www.xevy.io/${page.slug}`,
+    loc: page.slug === 'home' ? 'https://xevy.io' : `https://xevy.io/${page.slug}`,
     lastmod: new Date(page.modified).toISOString(),
     changefreq: 'weekly',
     priority: page.slug === 'home' ? 1.0 : 0.7,
   }));
 
   const postPaths = posts.map((post) => ({
-    loc: `https://www.xevy.io/${post.slug}`,
+    loc: `https://xevy.io/${post.slug}`,
     lastmod: new Date(post.modified).toISOString(),
     changefreq: 'weekly',
     priority: 0.7,
@@ -25,7 +25,7 @@ const additionalPaths = async () => {
 };
 
 export default {
-  siteUrl: 'https://www.xevy.io',
+  siteUrl: 'https://xevy.io',
   generateRobotsTxt: true, // Enable robots.txt generation
   robotsTxtOptions: {
     policies: [
@@ -35,8 +35,8 @@ export default {
       },
     ],
     additionalSitemaps: [
-      'https://www.xevy.io/sitemap.xml',
-      'https://www.xevy.io/sitemap-0.xml', // Your custom sitemaps
+      'https://xevy.io/sitemap.xml',
+      'https://xevy.io/sitemap-0.xml', // Your custom sitemaps
     ],
     host: '', // Ensure no host directive is included
   },
