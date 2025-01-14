@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { getSEOData } from '../services/api';
 import WebdesignPageSection from '@/components/WebdesignPageSection';
 
-const ServicesPage = ({ seoData }) => {
+const WebDesignPagePage = ({ seoData }) => {
   return (
     <>
       <Head>
@@ -35,4 +35,4 @@ export async function getStaticProps() {
   };
 }
 
-export default ServicesPage;
+export default WebDesignPagePage;

@@ -49,8 +49,8 @@ const PpcPageSection = () => {
                                                 src="/img/others/slide1.png" 
                                                 className="d-block w-100" 
                                                 alt="Slide 1"
-                                                width={600} // Set width and height for image optimization
-                                                height={400}
+                                                width={550} // Set width and height for image optimization
+                                                height={350}
                                             />
                                         </div>
                                     </div>

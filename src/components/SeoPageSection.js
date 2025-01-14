@@ -27,7 +27,7 @@ const SeoPageSection = () => {
                         alt="SEO Banner"
                         className="banner-image img-fluid"
                         width={1200}
-                        height={400} // You should provide dimensions for image optimization
+                        height={400} // Provide dimensions for image optimization
                     />
                 </div>
             </section>
@@ -66,7 +66,6 @@ const SeoPageSection = () => {
                     <div className="container">
                         <h2>Our Roadmap</h2>
                         <div className="roadmap-content">
-                            {/* Mapping through roadmap items */}
                             {[{
                                 position: 'left',
                                 title: 'We perform an in-depth TAM and ICP analysis',
@@ -129,7 +128,7 @@ const SeoPageSection = () => {
                             </div>
                             <div className="col-md-6 percentage-item right">
                                 <div className="percentage-circle pink">25%</div>
-                                <p>of Small Business websites don't use the H1 tags. This is a big flaw based on SEO Perspective!!!</p>
+                                <p>of Small Business websites don&rsquo;t use the H1 tags. This is a big flaw based on SEO Perspective&#33;</p>
                             </div>
                         </div>
                         <div className="row">
@@ -145,11 +144,11 @@ const SeoPageSection = () => {
                         <div className="row">
                             <div className="col-md-6 percentage-item left">
                                 <div className="percentage-circle purple">80%</div>
-                                <p>of Websites that make it to Google's first page have an average of 1,447 words per page.</p>
+                                <p>of Websites that make it to Google&rsquo;s first page have an average of 1,447 words per page.</p>
                             </div>
                             <div className="col-md-6 percentage-item right">
                                 <div className="percentage-circle pink">200%</div>
-                                <p>The terms “Where to buy” and “Near me” searches have grown by 200%, did you ensure your online presence yet?</p>
+                                <p>The terms “Where to buy” and “Near me” searches have grown by 200%, did you ensure your online presence yet&#63;</p>
                             </div>
                         </div>
                     </div>
@@ -160,4 +159,4 @@ const SeoPageSection = () => {
     );
 };
 
-export default SeoPageSection
+export default SeoPageSection;

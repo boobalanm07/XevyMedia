@@ -1,6 +1,6 @@
+import React from 'react';
 import { Devices, Highlighter } from '@phosphor-icons/react';
 import { Code, DeviceMobile, Layout, ProjectorScreenChart } from 'phosphor-react';
-import React from 'react';
 
 const MobileAppDevelopmentProcess = () => {
   return (
@@ -40,7 +40,7 @@ const MobileAppDevelopmentProcess = () => {
               <div>
                 <h3 className="h5 mb-20">Requirement Analysis</h3>
                 <p className="mb-0">
-                  The chief priority is to gather and analyze the client’s requirements before starting mobile app
+                  The chief priority is to gather and analyze the client&apos;s requirements before starting mobile app
                   development.
                 </p>
               </div>
@@ -69,7 +69,7 @@ const MobileAppDevelopmentProcess = () => {
               <div>
                 <h3 className="h5 mb-20">Development</h3>
                 <p className="mb-0">
-                  The development of our clients' apps starts after approval and is done using top-notch tools and
+                  The development of our clients&apos; apps starts after approval and is done using top-notch tools and
                   technologies.
                 </p>
               </div>

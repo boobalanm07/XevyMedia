@@ -13,9 +13,9 @@ const EducatesAndEntertains = () => {
         <div className="container">
           <h5>Save Up To 50%!</h5>
           <h2 className="section-heading">
-            You Don’t Have to Break the Bank to Hire Digital Marketing Talent!
+            You Don&apos;t Have to Break the Bank to Hire Digital Marketing Talent!
           </h2>
-          <h6>Here’s why hiring remote digital marketing experts from Remote Resource makes sense:</h6>
+          <h6>Here&apos;s why hiring remote digital marketing experts from Remote Resource makes sense:</h6>
           <div className="row">
             <div className="col-md-4">
               <h4
@@ -49,7 +49,7 @@ const EducatesAndEntertains = () => {
                 className={`educate-content ${activeContent === 1 ? 'active' : ''}`}
               >
                 <p>
-                  Hiring the right digital marketing experts doesn't have to be complicated. At Remote Resource, we offer hassle-free onboarding that allows you to focus on growing your business while we handle the recruitment process. Our team pre-vets each candidate, ensuring you get top-notch talent without the stress of sorting resumes and conducting multiple interviews. You can even request trial periods to test the remote digital marketing experts, ensuring they fit your team seamlessly. Save time and resources with our streamlined onboarding process, designed for business owners who want efficiency and excellence.
+                  Hiring the right digital marketing experts doesn&apos;t have to be complicated. At Remote Resource, we offer hassle-free onboarding that allows you to focus on growing your business while we handle the recruitment process. Our team pre-vets each candidate, ensuring you get top-notch talent without the stress of sorting resumes and conducting multiple interviews. You can even request trial periods to test the remote digital marketing experts, ensuring they fit your team seamlessly. Save time and resources with our streamlined onboarding process, designed for business owners who want efficiency and excellence.
                 </p>
               </div>
               <div
@@ -65,7 +65,7 @@ const EducatesAndEntertains = () => {
                 className={`educate-content ${activeContent === 3 ? 'active' : ''}`}
               >
                 <p>
-                  Flexibility is key to business success, especially in the ever-evolving digital marketing landscape. With Remote Resource, you have complete control over the size and composition of your marketing team. Whether you need just one SEO consultant or an entire team of specialists for a large-scale project, we scale according to your needs. There's no need for long-term contracts or rigid team structures—our flexible solutions empower you to grow or downsize your team as required. Take full control of your digital marketing strategy with the ability to adjust your resources based on your current business requirements.
+                  Flexibility is key to business success, especially in the ever-evolving digital marketing landscape. With Remote Resource, you have complete control over the size and composition of your marketing team. Whether you need just one SEO consultant or an entire team of specialists for a large-scale project, we scale according to your needs. There&apos;s no need for long-term contracts or rigid team structures—our flexible solutions empower you to grow or downsize your team as required. Take full control of your digital marketing strategy with the ability to adjust your resources based on your current business requirements.
                 </p>
               </div>
               <div
@@ -73,7 +73,7 @@ const EducatesAndEntertains = () => {
                 className={`educate-content ${activeContent === 4 ? 'active' : ''}`}
               >
                 <p>
-                  When it comes to sensitive business data, security is paramount. Remote Resource understands the importance of protecting your business's confidential information, which is why we enforce strict data security protocols and adhere to comprehensive nondisclosure agreements (NDAs). Our remote digital marketing experts work within a secure framework, ensuring your data remains private and protected throughout every project. Trust us to handle your marketing needs with the highest level of confidentiality and security, giving you peace of mind while achieving your business goals.
+                  When it comes to sensitive business data, security is paramount. Remote Resource understands the importance of protecting your business&apos;s confidential information, which is why we enforce strict data security protocols and adhere to comprehensive nondisclosure agreements (NDAs). Our remote digital marketing experts work within a secure framework, ensuring your data remains private and protected throughout every project. Trust us to handle your marketing needs with the highest level of confidentiality and security, giving you peace of mind while achieving your business goals.
                 </p>
               </div>
             </div>

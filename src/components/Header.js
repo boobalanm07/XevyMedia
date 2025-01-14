@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Import the Image component from next/image
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,13 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <Link className="navbar-brand" href="/">
-            <img src="/img/logo.png" alt="Logo" style={{ height: '50px' }} />
+            <Image 
+              src="/img/logo.png" 
+              alt="Logo" 
+              width={175} // You can specify the width you want for the logo
+              height={50} // Specify the height for the logo
+              priority // Optionally, you can add this to load the image with higher priority
+            />
           </Link>
           <button
             className="navbar-toggler"

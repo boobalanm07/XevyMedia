@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Browser, Envelope, MagnifyingGlass, ShoppingCart, User, VideoCamera } from 'phosphor-react';
 
-const HireSections = () => { // Corrected the function declaration
+const HireSections = () => {
   const [activeTab, setActiveTab] = useState('seo-specialist');
 
   useEffect(() => {
+    // Pause all videos and reset the current time whenever the active tab changes
     const allVideos = document.querySelectorAll('video');
     allVideos.forEach((video) => {
       video.pause();
       video.currentTime = 0;
     });
 
+    // Play the video of the active tab
     const activeVideo = document.querySelector(`#${activeTab} video`);
     if (activeVideo) {
       activeVideo.play().catch((error) => {
@@ -83,8 +85,8 @@ const HireSections = () => { // Corrected the function declaration
                 <h2>Digital Marketing Expertise At Your Fingertips</h2>
                 <h3>Looking for Digital Marketing Experts to Elevate Your Campaign?</h3>
                 <p>
-                  Boost your online presence with Xevy Media's team of seasoned Digital Marketing experts. Ready to
-                  take your business to the next level? Let's talk!
+                  Boost your online presence with Xevy Media&apos;s team of seasoned Digital Marketing experts. Ready to
+                  take your business to the next level? Let&apos;s talk!
                 </p>
                 <Link className="btn book-btn" href="/contact/">
                   Book A Free Consultation

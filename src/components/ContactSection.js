@@ -1,7 +1,8 @@
 // /components/Contact.js
-
 import { useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image'; // Import Image from next/image
+
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -53,8 +54,8 @@ const ContactSection = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 contact-info">
-            <h4>Let us know if you want to talk about your next PPC ads project!</h4>
-            <p>If you have any questions, feel free to reach out to us. We're here to help you with any inquiries you may have.</p>
+          <h4>Let us know if you want to talk about your Project.</h4>
+          <p>If you have any questions, feel free to reach out to us. We&apos;re here to help you with any inquiries you may have.</p>
             <div className="contact-box">
               <div className="icon-box">
                 <i className="fa fa-envelope"></i>

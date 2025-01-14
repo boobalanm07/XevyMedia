@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image"; // Import Next.js Image component
 
 const RecentWork = () => {
   const settings = {
@@ -52,12 +53,26 @@ const RecentWork = () => {
             // Add other slides here...
           ].map((slide, index) => (
             <div key={index} className="work-item">
-              <img src={slide.img} alt={`Thumbnail of the ${slide.title} project`} className="work-thumbnail" />
+              <Image 
+                src={slide.img} 
+                alt={`Thumbnail of the ${slide.title} project`} 
+                className="work-thumbnail" 
+                width={500} // Specify width
+                height={300} // Specify height
+                loading="lazy" // Added for lazy loading
+              />
               <div className="work-details">
                 <h3>{slide.title}</h3>
                 <p className="category">{slide.category}</p>
                 <p className="description">{slide.description}</p>
-                <a href={slide.link} className="btn" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                <a 
+                  href={slide.link} 
+                  className="btn" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Visit Website
+                </a>
               </div>
             </div>
           ))}

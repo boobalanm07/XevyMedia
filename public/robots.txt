@@ -2,9 +2,6 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://www.xevy.io
-
 # Sitemaps
 Sitemap: https://www.xevy.io/sitemap.xml
 Sitemap: https://www.xevy.io/sitemap-0.xml

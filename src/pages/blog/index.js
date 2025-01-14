@@ -55,7 +55,7 @@ const BlogList = ({ posts: initialPosts, seoData: initialSEOData }) => {
         const mediaData = await mediaRes.json();
         
         // Get the source_url from the media details
-        const featuredImageUrl = mediaData.source_url || '/path/to/default-image.jpg'; // Fallback to default if not found
+        const featuredImageUrl = mediaData.source_url || '/img/others/default-image.jpeg'; // Fallback to default if not found
         console.log("Featured Image URL: ", featuredImageUrl); // Log the URL for debugging
         return featuredImageUrl;
       } catch (err) {
@@ -95,7 +95,7 @@ const BlogList = ({ posts: initialPosts, seoData: initialSEOData }) => {
                         className="card-img-top"
                         width={500} // Adjust the image width
                         height={300} // Adjust the image height
-                        style={imageUrls[post.id] === '/path/to/default-image.jpg' ? { objectFit: 'cover' } : {}}
+                        style={imageUrls[post.id] === '/img/others/default-image.jpeg' ? { objectFit: 'cover' } : {}}
                       />
                     )}
 <div className="card-body">

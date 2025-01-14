@@ -8,7 +8,7 @@ const PaidsocialPageSection = () => {
           <div className="row mob-row-reverse">
             <div className="col-md-6 smm-content">
               <h3>Social Media Marketing</h3>
-              <p>We know how to make your business stand out on social media. Our expert team specialises in crafting custom social media strategies that drive results. From preparing engaging content to targeted ad campaigns, we'll help you reach and connect with your ideal audience.</p>
+              <p>We know how to make your business stand out on social media. Our expert team specialises in crafting custom social media strategies that drive results. From preparing engaging content to targeted ad campaigns, we&apos;ll help you reach and connect with your ideal audience.</p>
 
               <div className="row">
                 <div className="col-md-4">

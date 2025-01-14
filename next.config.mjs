@@ -2,7 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['admin.xevy.io'], // Add the external domain here
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'admin.xevy.io', // For admin subdomain
+      },
+      {
+        protocol: 'https',
+        hostname: 'xevy.io', // Add the base domain here
+      },
+    ],
   },
   async redirects() {
     return [

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 function Animation() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,17 +28,21 @@ function Animation() {
   return (
     <div id="preloader" className={isLoading ? '' : 'slide-up'}>
       <div className="loadingBox-mainimg">
-        <img
+        <Image
           src="/img/others/splash-image.png"
+          alt="Splash-image"
           className="img-fluid"
           style={{ marginBottom: '10px' }}
-          alt="Splash-image"
+          width={500} // Adjust width as needed
+          height={500} // Adjust height as needed
         />
       </div>
-      <img
+      <Image
         src="/img/others/footer-logo.png"
-        className="img-fluid pre-footer-logo"
         alt="Splash-Logo"
+        className="img-fluid pre-footer-logo"
+        width={200} // Adjust width as needed
+        height={100} // Adjust height as needed
       />
       <div className="loading-bar-container">
         <div className="loading-bar"></div>

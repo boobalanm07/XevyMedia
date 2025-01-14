@@ -23,8 +23,11 @@ const WhyChooseUs = () => {
             });
         }, options);
 
+        // Copy the current refs to a local variable to prevent issues with async cleanup
+        const contents = whyContentsRef.current;
+
         // Observe each .why-content element
-        whyContentsRef.current.forEach(content => {
+        contents.forEach(content => {
             if (content) {
                 observer.observe(content);
             }
@@ -32,7 +35,7 @@ const WhyChooseUs = () => {
 
         // Clean up observer when component unmounts
         return () => {
-            whyContentsRef.current.forEach(content => {
+            contents.forEach(content => {
                 if (content) {
                     observer.unobserve(content);
                 }

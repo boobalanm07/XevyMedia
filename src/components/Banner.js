@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link'; // Use Next.js' Link component for navigation
+import Image from 'next/image'; // Import Next.js Image component
 
 function Banner() {
   const texts = ["Creativity", "Strategy", "Excellence"];
@@ -26,7 +27,7 @@ function Banner() {
         <div className="banner">
           <div className="banner-left">
             <h1>
-              Achieve Your Goals with{" "}
+              Achieve Your Goals with {" "}
               <span
                 className={`slide-text ${isHiding ? "hide" : "show"}`}
                 id="slide-text"
@@ -35,16 +36,19 @@ function Banner() {
               </span>
             </h1>
             <h2>Empower Your Digital Journey</h2>
-            <Link href="/services">
-              <a className="btn">Get Started</a> {/* Use <a> inside <Link> */}
+            <Link href="/services" className="btn">
+            Get Started
             </Link>
+
           </div>
           <div className="banner-right">
             <div className="ball rotating"></div>
-            <img
+            <Image
               src="/img/banner/banner-1.png"
               alt="Astronaut in space representing digital journeys"
               className="astronaut img-fluid"
+              width={500}  // Adjust the width as per your needs
+              height={500} // Adjust the height as per your needs
             />
           </div>
         </div>

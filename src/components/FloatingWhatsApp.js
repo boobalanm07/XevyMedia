@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/FloatingWhatsApp.module.css'; // Import styles for the floating icon
+import Image from 'next/image'; // Import Next.js Image component for optimization
 
 const FloatingWhatsApp = () => {
   return (
@@ -10,9 +11,12 @@ const FloatingWhatsApp = () => {
       rel="noopener noreferrer"
       aria-label="Contact on WhatsApp"
     >
-      <img
-        src="/img/others/whatsapp.png" // Replace with the path to your icon
+      <Image
+        src="/img/others/whatsapp.png" // Path to your WhatsApp icon
         alt="WhatsApp"
+        className={styles.icon} // Optionally add a class for custom styling
+        width={50} // Adjust the width as needed
+        height={50} // Adjust the height as needed
       />
     </a>
   );

@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link'; // Import Link from next/link
+import Image from 'next/image'; // Import Image from next/image
 import { getSEOData, getPosts } from '../services/api';
 import { useState, useEffect } from 'react';
 
 const BlogPost = ({ seoData, post: initialPost }) => {
-  const [featuredImage, setFeaturedImage] = useState('/path/to/default-image.jpg'); // Default image
+  const [featuredImage, setFeaturedImage] = useState('/img/others/default-image.jpeg'); // Default image
 
   useEffect(() => {
     const fetchFeaturedImage = async () => {
@@ -14,7 +15,7 @@ const BlogPost = ({ seoData, post: initialPost }) => {
         try {
           const mediaRes = await fetch(mediaEndpoint);
           const mediaData = await mediaRes.json();
-          setFeaturedImage(mediaData.source_url || '/path/to/default-image.jpg'); // Set the image or fallback
+          setFeaturedImage(mediaData.source_url || '/img/others/default-image.jpeg'); // Set the image or fallback
         } catch (err) {
           console.error('Error fetching featured image:', err);
         }
@@ -37,11 +38,14 @@ const BlogPost = ({ seoData, post: initialPost }) => {
           {initialPost ? (
             <div className="row">
               <div className="col-md-12 mb-4">
-                {/* Render post thumbnail */}
-                <img
+                {/* Use Image from next/image for optimized image loading */}
+                <Image
                   src={featuredImage}
-                  className="card-img-top"
                   alt={initialPost.title.rendered || 'Blog Post'}
+                  className="card-img-top"
+                  width={1200} // Set the width of the image
+                  height={675} // Set the height of the image (aspect ratio 16:9)
+                  layout="responsive" // Make the image responsive
                 />
                 <div className="card-body">
                   <h1>{initialPost.title.rendered}</h1>

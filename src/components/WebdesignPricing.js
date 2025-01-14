@@ -56,16 +56,16 @@ const WebdesignPricing = () => {
     <section className="pricing-section webdesign">
       <div className="container">
         <h4>
-          We're not just another web design agency. We're a team of creative
-          wizards, design maestros, and tech geniuses passionate about creating
-          exceptional websites that stand out from the crowd. We give brands an
-          unfair advantage.
+          We&apos;re not just another web design agency. We&apos;re a team of
+          creative wizards, design maestros, and tech geniuses passionate about
+          creating exceptional websites that stand out from the crowd. We give
+          brands an unfair advantage.
         </h4>
         <p>
           A website is more than just a digital presence; it represents your
-          brand, vision, and values. That's why we work closely with our clients
-          to understand their unique needs and create bespoke websites that
-          reflect their personalities and ethos.
+          brand, vision, and values. That&apos;s why we work closely with our
+          clients to understand their unique needs and create bespoke websites
+          that reflect their personalities and ethos.
         </p>
         <div className="row">
           {pricingPlans.map((plan, index) => (

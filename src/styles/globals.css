@@ -528,7 +528,7 @@ font-weight: 500;
 }
 
 .gear-girl {
-    width: 75%; /* Set the width to 500px */
+    /*  width: 100%; Set the width to 500px */
     height: auto;
 }
 
@@ -2970,7 +2970,7 @@ text-align: left;
     opacity: 1; /* Show the image */
 }
 .digital-pr {
-    padding: 100px 0 0 0;
+    padding: 100px 0px 100px 0px;
 }
 .broadcast, 
 .app-based{

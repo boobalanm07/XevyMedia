@@ -24,7 +24,7 @@ const HomeSections = () => {
                   marketing goals.
                 </p>
                 <Link href="/hire-digital-marketer">
-                  <a className="btn">Hire Digital Marketer</a>  {/* Use <a> inside Link */}
+                <button className="btn">Hire Digital Marketer</button> {/* Or any other element */}
                 </Link>
               </div>
             </div>

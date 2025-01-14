@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../styles/Popup.module.css';
 import Script from 'next/script';
+import Image from 'next/image'; // Importing the Image component from Next.js
 
 function PopupForm() {
   const [showPopup, setShowPopup] = useState(false); // State for showing the popup
@@ -113,7 +114,6 @@ function PopupForm() {
       {showPopup && (
         <div
           id="contact-form-popup"
-          key={showPopup} // Add a unique key to force re-render
           className={`contact-modal ${showPopup ? 'show' : ''}`}
         >
           <div className="contact-mobile">
@@ -126,10 +126,15 @@ function PopupForm() {
             </button>
             <div className="pop-form">
               <h3>Get Call back from</h3>
-              <img src="/img/logo.png" alt="Logo" style={{ height: '60px' }} />
+              <Image 
+                src="/img/logo.png" 
+                alt="Logo" 
+                height={60} 
+                width={200} // Define width and height for better optimization
+              />
               <form onSubmit={handleSubmit} className="wpcf7">
                 <div className="form-group">
-                  <label for="user_name">Name</label>
+                  <label htmlFor="user_name">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -140,7 +145,7 @@ function PopupForm() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="user_email">Email</label>
+                  <label htmlFor="user_email">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -151,7 +156,7 @@ function PopupForm() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="user_phone">Mobile Number</label>
+                  <label htmlFor="user_phone">Mobile Number</label>
                   <input
                     type="tel"
                     name="phone"
@@ -162,7 +167,7 @@ function PopupForm() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="user_requirement">Requirement</label>
+                  <label htmlFor="user_requirement">Requirement</label>
                   <textarea
                     name="requirement"
                     className="form-control"
@@ -172,7 +177,7 @@ function PopupForm() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="user_website">Website</label>
+                  <label htmlFor="user_website">Website</label>
                   <input
                     type="url"
                     name="website"
@@ -186,10 +191,12 @@ function PopupForm() {
               {status && <p>{status}</p>}
             </div>
             <div className="pop-img">
-              <img 
+              <Image 
                 src="/img/others/splash-image.png" 
                 alt="An astronaut floating in space, symbolizing digital journeys" 
                 className="astronaut-popup img-fluid" 
+                height={500} // Add height and width for better optimization
+                width={500} 
               />
             </div>
           </div>

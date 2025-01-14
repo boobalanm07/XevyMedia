@@ -3,6 +3,7 @@ import ContentmarketingPricing from './ContentmarketingPricing';
 import Educates from './Educates';
 import OurWorkProcess from './OurWorkProcess';
 import ContactSection from './ContactSection';
+import Image from 'next/image';  // Importing the Image component from Next.js
 
 const ContentmarketingPageSection = () => {
   return (
@@ -25,7 +26,7 @@ const ContentmarketingPageSection = () => {
                   <div className="col-sm-12 heading">
                     <h3 className="small-title">Content Writing Services We Offer</h3>
                     <p>
-                      Choose Xevy Media as your digital marketing partner to unlock your brand’s full potential.
+                      Choose Xevy Media as your digital marketing partner to unlock your brand&apos;s full potential.
                       Together, we can create impactful strategies that drive engagement, foster growth, and deliver real results.
                     </p>
                   </div>
@@ -34,11 +35,14 @@ const ContentmarketingPageSection = () => {
                 <div className="row">
                   <div className="col-sm-6 content-marketing">
                     <div className="why-text text-left">
-                      <img 
+                      {/* Using Next.js Image component for optimization */}
+                      <Image 
                         src="/img/others/cont-mark-serv.png" 
                         alt="Graphic Design Services" 
                         loading="lazy" 
                         className="img-fluid" 
+                        width={500}  // Adjust the width according to your needs
+                        height={300}  // Adjust the height according to your needs
                       />
                     </div>
                   </div>
@@ -48,7 +52,7 @@ const ContentmarketingPageSection = () => {
                       <h4>Website Copywriting</h4>
                       <p>
                         Our website copywriting service is designed to create engaging and persuasive content that captivates visitors and drives conversions.
-                        We craft clear and concise copy for landing pages, service descriptions, and about pages, ensuring that your website effectively communicates your brand’s value proposition and encourages users to take action.
+                        We craft clear and concise copy for landing pages, service descriptions, and about pages, ensuring that your website effectively communicates your brand&apos;s value proposition and encourages users to take action.
                       </p>
                     </div>
                     
@@ -71,7 +75,7 @@ const ContentmarketingPageSection = () => {
                     <div className="why-content">
                       <h4>Social Media Content</h4>
                       <p>
-                        In today’s digital landscape, social media is a powerful tool for connecting with your audience.
+                        In today&apos;s digital landscape, social media is a powerful tool for connecting with your audience.
                         Our social media content writing services help you develop captivating posts, captions, and strategies that resonate with your followers.
                         We create shareable content that encourages engagement, builds brand awareness, and fosters community interaction.
                       </p>
@@ -98,7 +102,7 @@ const ContentmarketingPageSection = () => {
             <p>
               Words have the ability to inspire, engage, and persuade. Our team
               harnesses the power of language to create compelling content that drives
-              results. Discover how our expertise can elevate your brand's message.
+              results. Discover how our expertise can elevate your brand&apos;s message.
             </p>
             <div className="row">
               <div className="col-md-6">
@@ -124,7 +128,7 @@ const ContentmarketingPageSection = () => {
                   <p>
                     Relevant content posted regularly is a great way to humanize your
                     brand and interact with the customers. Our writers use the right
-                    words to create content that draws your visitor’s attention and
+                    words to create content that draws your visitor&apos;s attention and
                     converts them to customers.
                   </p>
                 </div>
@@ -152,7 +156,7 @@ const ContentmarketingPageSection = () => {
                   <p>
                     Relevant content posted regularly is a great way to humanize your
                     brand and interact with the customers. Our writers use the right
-                    words to create content that draws your visitor’s attention and
+                    words to create content that draws your visitor&apos;s attention and
                     converts them to customers.
                   </p>
                 </div>
@@ -169,34 +173,42 @@ const ContentmarketingPageSection = () => {
             <h2 className="section-heading">Did You Know?</h2>
             <div className="row">
               <div className="col-md-3 marketer-box">
-                <img
-                  src="https://xevy.io/wp-content/themes/xevy/img/others/60.png"
+                <Image
+                  src="/img/others/60.png"
                   alt="Marketer 1"
                   className="img-fluid"
+                  width={100} // Adjust width accordingly
+                  height={100} // Adjust height accordingly
                 />
                 <p>No of marketers create one content per day.</p>
               </div>
               <div className="col-md-3 marketer-box">
-                <img
-                  src="https://xevy.io/wp-content/themes/xevy/img/others/90.png"
+                <Image
+                  src="/img/others/90.png"
                   alt="Marketer 2"
                   className="img-fluid"
+                  width={100} // Adjust width accordingly
+                  height={100} // Adjust height accordingly
                 />
                 <p>No of marketers use content marketing to create inbound leads</p>
               </div>
               <div className="col-md-3 marketer-box">
-                <img
-                  src="https://xevy.io/wp-content/themes/xevy/img/others/93.png"
+                <Image
+                  src="/img/others/93.png"
                   alt="Marketer 3"
                   className="img-fluid"
+                  width={100} // Adjust width accordingly
+                  height={100} // Adjust height accordingly
                 />
                 <p>No of B2B marketers use content marketing.</p>
               </div>
               <div className="col-md-3 marketer-box">
-                <img
-                  src="https://xevy.io/wp-content/themes/xevy/img/others/42.png"
+                <Image
+                  src="/img/others/42.png"
                   alt="Marketer 4"
                   className="img-fluid"
+                  width={100} // Adjust width accordingly
+                  height={100} // Adjust height accordingly
                 />
                 <p>No of marketers say content marketing is effective.</p>
               </div>

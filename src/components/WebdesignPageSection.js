@@ -1,5 +1,6 @@
 import ContactSection from './ContactSection';
 import WebdesignPricing from './WebdesignPricing';
+import Image from 'next/image'; // Importing the Image component
 
 const WebdesignPageSection = () => {
     return (
@@ -31,10 +32,12 @@ const WebdesignPageSection = () => {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-md-6 image">
-                                <img
+                                <Image
                                     src="/img/others/how-we-do.png"
                                     className="img-fluid"
                                     alt="How we develop websites"
+                                    width={500} // Set a fixed width (adjust as needed)
+                                    height={300} // Set a fixed height (adjust as needed)
                                 />
                             </div>
                             <div className="col-md-6">
@@ -72,10 +75,12 @@ const WebdesignPageSection = () => {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-md-6 image">
-                                <img
+                                <Image
                                     src="/img/others/ui-img.gif"
                                     className="img-fluid"
                                     alt="User Interface Design"
+                                    width={500} // Set a fixed width (adjust as needed)
+                                    height={300} // Set a fixed height (adjust as needed)
                                 />
                             </div>
                             <div className="col-md-6">

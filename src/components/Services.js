@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link'; // Use Next.js Link component
+import Image from 'next/image'; // Import Next.js Image component
 import { Swatches, ArticleNyTimes, DeviceMobile, ShareNetwork, Browsers, HandPointing } from 'phosphor-react'; // Import icons
 
 const services = [
@@ -66,11 +67,13 @@ function ServicesSection() {
               ))}
             </div>
             <div className="center-image">
-              <img
+              <Image
                 src="/img/others/services-center-image.png"
                 alt="Illustration of Gear and Girl"
-                className="gear-girl"
                 loading="lazy"
+                className="gear-girl"
+                width={400} // Add width and height for Image optimization
+                height={450} // Adjust as needed for your image dimensions
               />
             </div>
           </div>

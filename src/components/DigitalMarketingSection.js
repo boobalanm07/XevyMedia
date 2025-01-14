@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image"; // Import the Image component from Next.js
 
 const DigitalMarketingSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    { src: "/img/others/digital-1.png", alt: "Digital Marketing SEO services image" },
-    { src: "/img/others/digital-2.png", alt: "PPC advertising campaign image" },
-    { src: "/img/others/digital-3.png", alt: "Social media management and content marketing image" },
+    { src: "/img/others/digital-1.png", alt: "Digital Marketing SEO services image", width: 600, height: 400 },
+    { src: "/img/others/digital-2.png", alt: "PPC advertising campaign image", width: 600, height: 400 },
+    { src: "/img/others/digital-3.png", alt: "Social media management and content marketing image", width: 600, height: 400 },
   ];
 
   useEffect(() => {
@@ -28,16 +29,21 @@ const DigitalMarketingSection = () => {
           </div>
           <div className="col-md-6">
             {images.map((image, index) => (
-              <img
+              <div
                 key={index}
-                src={image.src}
-                alt={image.alt}
                 className={`cen-img fade-img img-fluid ${index === currentImage ? "show" : ""}`}
                 style={{
                   opacity: index === currentImage ? 1 : 0,
                   transition: "opacity 1s ease-in-out",
                 }}
-              />
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                />
+              </div>
             ))}
           </div>
         </div>
