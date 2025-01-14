@@ -3889,3 +3889,7 @@ margin-top: 0px;
     padding: 16px;
     cursor: pointer;
 }
+.card-img, .card-img-bottom, .card-img-top
+{
+    height: auto;
+}
