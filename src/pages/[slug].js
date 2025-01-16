@@ -1,21 +1,24 @@
 import Head from 'next/head';
-import Link from 'next/link'; // Import Link from next/link
-import Image from 'next/image'; // Import Image from next/image
+import Link from 'next/link';
+import Image from 'next/image';
 import { getSEOData, getPosts } from '../services/api';
 import { useState, useEffect } from 'react';
 
-const BlogPost = ({ seoData, post: initialPost }) => {
-  const [featuredImage, setFeaturedImage] = useState('/img/others/default-image.jpeg'); // Default image
+const BlogPost = ({ seoData: initialSEOData, post: initialPost }) => {
+  const [featuredImage, setFeaturedImage] = useState('/img/others/default-image.jpeg');
+  const [post, setPost] = useState(initialPost);
+  const [seoData, setSEOData] = useState(initialSEOData);
 
+  // Fetch featured image
   useEffect(() => {
     const fetchFeaturedImage = async () => {
-      if (initialPost?._links?.['wp:featuredmedia']) {
-        const mediaEndpoint = initialPost._links['wp:featuredmedia'][0].href;
+      if (post?._links?.['wp:featuredmedia']) {
+        const mediaEndpoint = post._links['wp:featuredmedia'][0].href;
 
         try {
           const mediaRes = await fetch(mediaEndpoint);
           const mediaData = await mediaRes.json();
-          setFeaturedImage(mediaData.source_url || '/img/others/default-image.jpeg'); // Set the image or fallback
+          setFeaturedImage(mediaData.source_url || '/img/others/default-image.jpeg');
         } catch (err) {
           console.error('Error fetching featured image:', err);
         }
@@ -23,6 +26,32 @@ const BlogPost = ({ seoData, post: initialPost }) => {
     };
 
     fetchFeaturedImage();
+  }, [post]);
+
+  // Dynamically fetch latest post data every 60 seconds or when it changes
+  useEffect(() => {
+    const fetchLatestPost = async () => {
+      try {
+        const res = await getPosts({ slug: initialPost.slug });
+        const latestPost = res.data[0];
+
+        if (latestPost) {
+          setPost(latestPost);
+
+          // Update SEO data dynamically
+          const latestSEOData = await getSEOData(latestPost.slug);
+          setSEOData(latestSEOData);
+        }
+      } catch (error) {
+        console.error('Error fetching latest post data:', error);
+      }
+    };
+
+    // Fetch data every 60 seconds (or based on your requirement)
+    const interval = setInterval(fetchLatestPost, 5000); // 5 seconds
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, [initialPost]);
 
   return (
@@ -35,27 +64,28 @@ const BlogPost = ({ seoData, post: initialPost }) => {
       </Head>
       <main id="main" className="site-main blog-post">
         <section className="container">
-          {initialPost ? (
+          {post ? (
             <div className="row">
               <div className="col-md-12 mb-4">
-                {/* Use Image from next/image for optimized image loading */}
                 <Image
                   src={featuredImage}
-                  alt={initialPost.title.rendered || 'Blog Post'}
+                  alt={post.title.rendered || 'Blog Post'}
                   className="card-img-top"
-                  width={1200} // Set the width of the image
-                  height={675} // Set the height of the image (aspect ratio 16:9)
-                  layout="responsive" // Make the image responsive
+                  width={1200}
+                  height={675}
+                  layout="responsive"
                 />
                 <div className="card-body">
-                  <h1>{initialPost.title.rendered}</h1>
+                  <h1>{post.title.rendered}</h1>
                   <div
                     className="post-content"
                     dangerouslySetInnerHTML={{
-                      __html: initialPost.content.rendered, // Render the full HTML content of the post
+                      __html: post.content.rendered,
                     }}
                   />
-                  <Link href="/blog" className="btn btn-secondary">Back to Blog</Link> {/* Corrected Link usage */}
+                  <Link href="/blog" className="btn btn-secondary">
+                    Back to Blog
+                  </Link>
                 </div>
               </div>
             </div>
@@ -78,14 +108,13 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false, // You can set this to true or 'blocking' depending on your preference
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  // Fetch SEO data for the specific post
   let seoData = {
     title: 'Default Post Title',
     description: 'Default description for post',
@@ -99,7 +128,6 @@ export async function getStaticProps({ params }) {
     console.error('Error fetching SEO data:', error);
   }
 
-  // Fetch the specific post using its slug
   const res = await getPosts({ slug });
   const post = res.data[0];
 
@@ -107,6 +135,7 @@ export async function getStaticProps({ params }) {
     props: {
       seoData,
       post,
+      revalidate: 60,
     },
   };
 }

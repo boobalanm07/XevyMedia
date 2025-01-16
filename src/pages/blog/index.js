@@ -56,10 +56,10 @@ const BlogList = ({ posts: initialPosts, seoData: initialSEOData }) => {
         
         // Get the source_url from the media details
         const featuredImageUrl = mediaData.source_url || '/img/others/default-image.jpeg'; // Fallback to default if not found
-        console.log("Featured Image URL: ", featuredImageUrl); // Log the URL for debugging
+        //console.log("Featured Image URL: ", featuredImageUrl); // Log the URL for debugging
         return featuredImageUrl;
       } catch (err) {
-        console.error('Error fetching featured image:', err);
+        //console.error('Error fetching featured image:', err);
       }
     }
   
@@ -148,6 +148,7 @@ export async function getStaticProps() {
 
     return {
       props: { posts, seoData },
+      revalidate: 60, // Revalidate every 60 seconds
     };
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -161,6 +162,7 @@ export async function getStaticProps() {
           ogImage: '',
         },
       },
+      revalidate: 60, // Revalidate every 60 seconds
     };
   }
 }
