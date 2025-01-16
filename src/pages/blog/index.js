@@ -43,7 +43,7 @@ const BlogList = ({ posts: initialPosts, seoData: initialSEOData }) => {
   }, [posts]);
 
   const getFeaturedImage = async (post) => {
-    console.log('Post object:', post); // Log the full post object for inspection
+    //console.log('Post object:', post); // Log the full post object for inspection
     
     // Check if there is a featured media link
     if (post._links && post._links['wp:featuredmedia']) {
