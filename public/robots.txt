@@ -1,6 +1,11 @@
-# *
+# Allow all user agents to crawl most parts of the site
 User-agent: *
 Allow: /
+
+# Disallow specific URLs
+Disallow: /?p=1
+Disallow: /?x=6478323
+Disallow: /p/2549wF2.html
 
 # Sitemaps
 Sitemap: https://xevy.io/sitemap.xml
