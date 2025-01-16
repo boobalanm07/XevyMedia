@@ -8,10 +8,14 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter(); // Access the current route
   const canonicalUrl = `https://www.xevy.io${router.asPath.split('?')[0]}`; // Build canonical URL (ignoring query strings)
 
+  // Check if the current page is the 404 page
+  const is404Page = router.asPath === '/404';
+
   return (
     <>
       <Head>
-        <link rel="canonical" href={canonicalUrl} />
+        {/* Render canonical link only if it's not the 404 page */}
+        {!is404Page && <link rel="canonical" href={canonicalUrl} />}
         <meta name="robots" content="index, follow" />
       </Head>
       <PopupForm />
