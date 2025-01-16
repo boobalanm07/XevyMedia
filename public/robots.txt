@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://xevy.io/sitemap-0.xml
+Sitemap: https://xevy.io/sitemap.xml
