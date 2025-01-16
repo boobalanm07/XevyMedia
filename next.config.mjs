@@ -31,22 +31,22 @@ const nextConfig = {
         permanent: false, // Temporary redirect
       },
       {
-        source: '/:path*', // Match any URL with query params
+        source: '/',
         has: [
           {
             type: 'query',
-            key: 'p', // Match URLs with the query parameter `p`
+            key: 'x', // Match URLs with the query parameter `x`
           },
         ],
         destination: '/404', // Redirect to 404 page
         permanent: false, // Temporary redirect
       },
       {
-        source: '/:path*', // Match any URL with query params
+        source: '/',
         has: [
           {
             type: 'query',
-            key: 'x', // Match URLs with the query parameter `x`
+            key: 'p', // Match URLs with the query parameter `p`
           },
         ],
         destination: '/404', // Redirect to 404 page
