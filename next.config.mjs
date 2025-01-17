@@ -18,7 +18,7 @@ const nextConfig = {
       {
         source: '/home',
         destination: '/',
-        permanent: true, // Permanent redirect
+        permanent: true, // Permanent redirect home URL
       },
       {
         source: '/p/:path*',
