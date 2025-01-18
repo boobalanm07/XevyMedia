@@ -67,14 +67,14 @@ const BlogPost = ({ seoData: initialSEOData, post: initialPost }) => {
           {post ? (
             <div className="row">
               <div className="col-md-12 mb-4">
-                <Image
+              {false && ( <Image
                   src={featuredImage}
                   alt={post.title.rendered || 'Blog Post'}
                   className="card-img-top"
                   width={1200}
                   height={675}
                   layout="responsive"
-                />
+                /> )}
                 <div className="card-body">
                   <h1>{post.title.rendered}</h1>
                   <div
