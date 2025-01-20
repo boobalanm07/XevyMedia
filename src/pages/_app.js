@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
         {/* Render canonical link only if it's not the 404 page */}
         {!is404Page && <link rel="canonical" href={canonicalUrl} />}
         <meta name="robots" content="index, follow" />
+        <meta name="google-site-verification" content="QhtvqIcikoHubyYCuJ7IbwTiCYTQq9qmvSD02PPG9LA" />
       </Head>
       <PopupForm />
       <Layout>
