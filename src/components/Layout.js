@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import Header from './Header';
 import Footer from './Footer';
 import styles from '../styles/Layout.module.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -14,6 +16,7 @@ const Layout = ({ children }) => {
       <Header />
       <main className={isHomePage ? styles.bg : ''}>
         {children}
+        <SpeedInsights />
       </main>
       <Footer />
     </>
