@@ -29,7 +29,7 @@ const services = [
     angle: '180deg',
   },
   {
-    to: '/SEO',
+    to: '/seo',
     icon: <Browsers size={32} />, // Use the imported icon component
     label: 'SEO',
     angle: '240deg',
