@@ -108,7 +108,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking', // Allow pages to be generated dynamically on demand
   };
 }
 
@@ -131,12 +131,18 @@ export async function getStaticProps({ params }) {
   const res = await getPosts({ slug });
   const post = res.data[0];
 
+  if (!post) {
+    return {
+      notFound: true, // Return 404 if the post is not found
+    };
+  }
+
   return {
     props: {
       seoData,
       post,
-      revalidate: 60,
     },
+    revalidate: 60, // Revalidate every 60 seconds for Incremental Static Regeneration
   };
 }
 
