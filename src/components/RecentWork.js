@@ -46,10 +46,10 @@ const RecentWork = () => {
         {/* React Slick Slider */}
         <Slider {...settings}>
           {[
-            { title: "Fairplay", img: "/img/thumbnails/th-5.png", link: "https://fairplayorginal.shop/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular betting exchange." },
-            { title: "Lotus365", img: "/img/thumbnails/th-7.png", link: "https://orginallotus-365.live/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular betting exchange." },
-            { title: "Reddyannabook", img: "/img/thumbnails/th-8.png", link: "https://redyy-anna.life/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular betting exchange." },
-            { title: "Winbuzz", img: "/img/thumbnails/th-9.png", link: "https://win-buzz.buzz/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular betting exchange." },
+            { title: "Xevyoverseas", img: "/img/thumbnails/th-1.png", link: "https://xevyoverseas.com/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular International education consultancy." },
+            { title: "Xevyoverseas", img: "/img/thumbnails/th-1.png", link: "https://xevyoverseas.com/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular International education consultancy." },
+            { title: "Xevyoverseas", img: "/img/thumbnails/th-1.png", link: "https://xevyoverseas.com/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular International education consultancy." },
+            { title: "Xevyoverseas", img: "/img/thumbnails/th-1.png", link: "https://xevyoverseas.com/", category: "Web Design & Development", description: "A visually stunning and user-friendly website designed to most trusted and popular International education consultancy." },
             // Add other slides here...
           ].map((slide, index) => (
             <div key={index} className="work-item">
